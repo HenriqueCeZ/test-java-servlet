@@ -4,45 +4,45 @@
 <img src="../images/BookstoreAdminLogo.png" />
 </div>
 <div>
-Bem vindo! | <a href="logout">Sair</a>
+Welcome, <c:out value="${sessionScope.useremail}"/> | <a href="logout">Logout</a>
 <br/>
 <br/>
 </div>
 <div id="headermenu" >
 
 <div >
-<a href="/BookStoreWebsite/admin/list_users">
-<img  src="../images/users.png" /> <br/>Usuários
+<a href="list_users">
+<img  src="../images/users.png" /> <br/>Users
 </a>
 </div>
 
 <div  >
 <a href="list_category" >
-<img  src="../images/category.png" /> <br/> Categorias
+<img  src="../images/category.png" /> <br/> Categories
 </a>
 </div>
 
 <div  >
 <a href="books">
-<img  src="../images/bookstack.png" /><br/>Livros
+<img  src="../images/bookstack.png" /><br/>Books
 </a>
 </div>
 
 <div  >
 <a href="customer">
-<img  src="../images/customer.png" /><br/>Clientes
+<img  src="../images/customer.png" /><br/>Customers
 </a>
 </div>
 
 <div >
 <a href="reviews">
-<img  src="../images/review.png" /><br/>Avaliações
+<img  src="../images/review.png" /><br/>Reviews
 </a>
 </div>
 
 <div  >
 <a href="orders">
-<img  src="../images/order.png" /><br/>Pedidos
+<img  src="../images/order.png" /><br/>Orders
 </a>
 
 </div>

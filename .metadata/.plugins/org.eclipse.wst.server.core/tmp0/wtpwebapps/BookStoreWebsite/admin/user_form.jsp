@@ -1,28 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="com.bookstore.entity.Users" import="java.util.List"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+      <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Create Users</title>
+
+<meta charset="UTF-8">
 <link rel="stylesheet" href="../css/style.css">
 <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../js/jquery.validate.min.js"></script>
-</head>
-<body>
+<title>
 
-	<jsp:directive.include file="header.jsp" />
-<div align="center">
-<h2 class="pageheading">
 <c:if test="${user != null}">
-Editar Usuário
+Edit User
 </c:if> 
 
 <c:if test="${user==null}">
-Criar novo usuário
+Create New User
+</c:if>
+
+</title>
+</head>
+<body>
+
+<jsp:directive.include file="header.jsp"/>
+
+<div align="center">
+<h2 class="pageheading">
+<c:if test="${user != null}">
+Edit User
+</c:if> 
+
+<c:if test="${user==null}">
+Create New User
 </c:if>
 
   </h2>
@@ -30,26 +40,26 @@ Criar novo usuário
 </div>
 <div align="center">
 <c:if test="${user != null}">
-<form action="update_user" method="post" id="userForm" onsubmit="return validateFormInput()" onsubmit='disableButton()'>
+<form action="update_user" method="post" id="userForm" >
 <input type="hidden" name="userId" value="${user.userId}">
 </c:if>
 
 <c:if test="${user == null}">
-<form action="create_user" method="post" id="userForm" onsubmit="return validateFormInput()" onsubmit=' return disableButton()'>
+<form action="create_user" method="post" id="userForm">
 </c:if>
 <table class="form">
 <tr>
-<td align="right">Email: </td>
+<td align="right">Email</td>
 <td aligh="left"><input type="text" id="email" name="email" size="20"  value="${user.email}" /></td>
 </tr>
 
 <tr>
-<td class="test-form" align="right">Nome completo: </td>
+<td align="right">Full name:</td>
 <td aligh="left"><input type="text" id="fullname" name="fullname" size="20" value="${user.fullName}"/></td>
 </tr>
 
 <tr>
-<td aligh="right">senha: </td>
+<td aligh="right">Password</td>
 <td aligh="left"><input type="password" id="password" name="password" size="20" value="${user.password}" /></td>
 </tr>
 
@@ -59,7 +69,6 @@ Criar novo usuário
 <td colspan="2" align="center">
 <button type="submit">Save</button>&nbsp;&nbsp;&nbsp;
 <button  id="buttonCancel">Cancel</button>
-<!-- //<button  onclick="location.href = document.referrer;">Cancel</button>  -->
 
 <!-- //with javascipt=  <button  onclick="javascript:history.go(-1);">Cancel</button>
  -->
@@ -92,19 +101,21 @@ $(document).ready(function(){
 		},
 		messages: {
 			email: {
-			required:"Campo obrigatório",
-				email:"Campo obrigatório"
+			required:"Please enter email",
+				email:"please enter an valid email address"
 			},
-			fullname:"Campo obrigatório",
-			password:"Campo obrigatório"
+			fullname:"Please enter full name",
+			password:"please enter password"
 		}
 	});
 	$("#buttonCancel").click(function(){
 		history.go(-1);
 	});
 });
+
 /* //with java script we can use this but must add onsubmit="return validateFormInput()" in the both
 //form action="update_user" and action="create_user"  
+
 function validateFormInput(){
 	var fieldEmail=document.getElementById("email");
 	var fieldFullname=document.getElementById("fullname");

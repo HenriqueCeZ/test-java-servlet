@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Evergreeen Bookstore Adminstration</title>
-<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <jsp:directive.include file="header.jsp"/>
